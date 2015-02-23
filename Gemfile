@@ -35,8 +35,12 @@ gem 'bootstrap-sass'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'pundit'
+
 gem 'whenever'
 gem 'delayed_job_active_record'
+# Pagination
+gem 'kaminari'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

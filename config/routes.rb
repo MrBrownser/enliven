@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  root 'registrations#new'
+
+  resources :users, only: [:index, :show, :edit, :update], param: :username
+
+  get  "/register", to: "registrations#new"
+  post "/register", to: "registrations#create"
+
+  post   "/login",  to: "login#create"
+  delete "/logout", to: "login#destroy"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
