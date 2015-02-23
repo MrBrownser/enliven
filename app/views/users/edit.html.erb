@@ -1,0 +1,36 @@
+<h1>Edit <%= @user.username %></h1>
+
+<% if @user.errors.any? %>
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div class="form-group">
+    <%= f.label :username, "Username" %>
+    <%= f.text_field :username, placeholder: "Your username", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fullname, "Full name" %>
+    <%= f.text_field :fullname, placeholder: "Your full name", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :styles, "Styles you dance" %>
+    <%= f.text_field :styles, placeholder: "ie. Housedance, Popping, Bboying, ...", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :born, "Birthday" %>
+    <%= f.date_field :born, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :summary, "Summary" %>
+    <%= f.text_area :summary, placeholder: "Enter here a brief summary of your career as a dancer" %>
+    <% end %>
+  </div>
+  <%= f.submit "Edit user info!", class: "btn btn-default" %>
+<% end %>
+
+<h1> Still remains the part of the form where update all advanced info! </h1>

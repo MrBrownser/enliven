@@ -1,0 +1,22 @@
+<h1>All registered users</h1>
+
+<% if current_user %>
+  <h2>Hello <%= current_user.username %></h2>
+  <p><%= link_to "Logout", logout_path, method: :delete, confirm: 'Logout?', remote: true %></p>
+<% else %>
+  <%= render "login_form" %>
+<% end %>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to "#{user.username} - #{user.fullname}", user_path(user) %>
+      <br> <p> Styles: <%= user.styles %> </p>
+    </li>
+    <% if policy(user).edit? %>
+      <%= link_to "Edit", edit_user_path(user) %>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= paginate @users %>
