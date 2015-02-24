@@ -1,28 +1,20 @@
 class UsersController < ApplicationController
-
-	rescue_from Pundit::NotAuthorizedError, with: :deny_access
-	
-	include Pundit
-
 	before_action :load_user, except: :index
 
 	def index
 		page  = params[:page].to_i || 1
 
-		@users = policy_scope(User).order("username ASC").page(page)
+		@users = User.order("username ASC").page(page)
 	end
 
 	def show
-		authorize @user
 	end
 
 	def edit
-		authorize @user
 	end
+	
 
 	def update
-		authorize @user
-
 		if @user.update(users_params)
 			flash[:notice] = "User updated successfully"
 			

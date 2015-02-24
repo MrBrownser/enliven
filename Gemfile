@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'bootstrap_form'
+# The template I'm using
+gem 'bootswatch-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

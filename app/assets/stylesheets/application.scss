@@ -12,5 +12,12 @@
  *
  *= require rails_bootstrap_forms
  */
-@import "bootstrap-sprockets";
+@import "bootswatch/slate/variables";
+// bootswatch-rails Gem documentatio avoid sprockets importing
+// @import "bootstrap-sprockets";
 @import "bootstrap";
+// Fixed navbar in the top
+body { padding-top: 60px; }
+@import "bootswatch/slate/bootswatch";
+// My own styles.css
+// @import "styles";
