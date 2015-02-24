@@ -23,7 +23,9 @@ users = User.all
 
 users.each do |user|
 	Project.create!(
-		name: Faker::Commerce.product_name,
-		user_id: user.id
+		# name: Faker::Commerce.product_name,
+		name: "Project Number #{user.id}",
+		user_id: user.id,
+		total_likes: Faker::Number.number(2)
 		)
 end

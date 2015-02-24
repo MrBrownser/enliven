@@ -1,0 +1,13 @@
+<% @projects.each do |project| %>
+<div class="col-sm-2">
+	<div class="thumbnail" style="backgound-color: blue;"></div>
+	<div class="project-info">
+		<p> 
+			<h3> <%= project.name %> </h3>
+			<h2> <%= project.company %> </h2>			
+			<p> #enlivened: <%= project.total_likes %> times!</p>
+			<p> <%= project.description %> </p>
+		</p>
+	</div>
+</div>
+<% end %>

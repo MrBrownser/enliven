@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'registrations#new'
+  root 'site#home'
 
   resources :users, only: [:index, :show, :edit, :update], param: :username
 
