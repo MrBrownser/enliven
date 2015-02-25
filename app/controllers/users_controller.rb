@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   	end
 
   	def users_params
-    	params.require(:user).permit(:username, :fullname, :styles, :summary, :born, :nationality, :ethnicity, :languages, :height, :chest, :waist, :hips, :suit, :shirt, :pants, :shoes, :eyes, :hair, :actingexp, :battleexp, :adsexp, :teachingexp)
+    	params.require(:user).permit(:username, :fullname, :styles, :summary, :born, :profile_picture, :nationality, :ethnicity, :languages, :height, :chest, :waist, :hips, :suit, :shirt, :pants, :shoes, :eyes, :hair, :actingexp, :battleexp, :adsexp, :teachingexp)
   	end
 
   	def deny_access

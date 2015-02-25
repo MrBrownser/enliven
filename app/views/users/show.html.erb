@@ -1,12 +1,18 @@
 <!-- User's page header -->
 <div class="row">
 	<header>
-
+		<div class="col-sm-2">
+			<%= image_tag @user.profile_picture.url(:thumb) %>
+		</div>
+		<div class="col-sm-6">
+			<h1> <%= @user.username %> </h1>
+			<h2> <%= @user.nationality %> </h2>
+		</div>
 	</header>
 </div>
 <div class="row">
-	<p> Here goes the selectors </p>
+	<h3 class="text-center"> Here goes the selectors </h3>
 </div>
 <div class="row">
-	<p> Here goes the images content </p>
+	<h3 class="text-center"> Here goes the images content </h3>
 </div>

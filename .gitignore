@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# For don't store user images on github
+public/system

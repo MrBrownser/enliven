@@ -16,6 +16,8 @@
 		born: Faker::Date.between(70.years.ago, 16.years.ago),
 		styles: "Basicly poopin', but I'm doing locking and housedance as well",
 		summary: Faker::Lorem.paragraph,
+		nationality: Faker::Address.country,
+		profile_picture: open(Faker::Avatar.image),
 		actingexp: Faker::Lorem.paragraphs(2, true),
 		battleexp: Faker::Lorem.paragraphs(2, true),
 		adsexp: Faker::Lorem.paragraphs(2, true),

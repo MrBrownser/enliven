@@ -27,6 +27,8 @@ gem 'bootstrap_form'
 # The template I'm using
 gem 'bootswatch-rails'
 
+gem 'paperclip'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
