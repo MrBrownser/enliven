@@ -23,4 +23,15 @@ RSpec.describe User, type: :model do
 			expect(user.errors[:born].present?).to be true
 		end
 	end
+
+	# TODO: Tests aren't working!!
+	describe "On user creation" do
+		it "Validates creation of empty project (Portfolio) for all individual media" do
+			user = build(:user)
+			project = User.projects.first
+
+			expect(user.projects.empty?).to be false
+			expect(project).to eq(project.name)
+		end
+	end
 end
