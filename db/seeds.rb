@@ -9,7 +9,7 @@
 # Users creation
 (1..20).each do |it|
 	User.create!(
-		username: Faker::Internet::user_name,
+		username: (Faker::Internet::user_name).split(".")[0],
 		password: "12345678",
 		fullname: Faker::Name.name,
 		email: Faker::Internet::email,

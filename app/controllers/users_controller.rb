@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 	private
 
 	def load_user
-    	@user = User.find(params[:username])
+    	@user = User.find_by username: params[:username]
   	end
 
   	def users_params

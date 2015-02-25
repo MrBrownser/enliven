@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :projects
   end
 
-  get "/users/:username/info", to: "users#info"
+  get "/users/:user_username/info", to: "users#info"
 
   get  "/register", to: "registrations#new"
   post "/register", to: "registrations#create"

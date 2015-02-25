@@ -2,10 +2,14 @@
 <div class="row">
 	<header>
 		<div class="col-sm-2">
-			<%= image_tag @user.profile_picture.url(:thumb) %>
+			<% unless @user.profile_picture_file_name.nil? %>
+				<%= image_tag @user.profile_picture.url(:thumb) %>
+			<% else %>
+				<img src="/assets/default_profile_pic" alt="User profile picture">
+			<% end %>
 		</div>
 		<div class="col-sm-6">
-			<h1> <%= @user.username %> </h1>
+			<h1> <%= @user.fullname %> <%= link_to "@#{@user.username}", user_path(@user.username), class: "lead" %> </h1>
 			<h2> <%= @user.nationality %> </h2>
 		</div>
 	</header>

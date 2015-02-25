@@ -7,7 +7,7 @@
 	<div class="project-info">
 		<p> 
 			<h3> <%= link_to project.name, user_project_path(project.user.username, project.id) %> </h3>
-			<p class="text-primary"> by <%= link_to project.user.username, user_path(project.user_id) %> </p>
+			<p class="text-primary"> by <%= link_to project.user.username, user_path(project.user.username) %> </p>
 			<h2> <%= project.company %> </h2>			
 			<p> <%= project.total_likes %># enlivened!</p>
 			<p> <%= project.description %> </p>
