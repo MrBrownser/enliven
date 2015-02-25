@@ -15,17 +15,23 @@
 		email: Faker::Internet::email,
 		born: Faker::Date.between(70.years.ago, 16.years.ago),
 		styles: "Basicly poopin', but I'm doing locking and housedance as well",
-		summary: Faker::Lorem.paragraph
+		summary: Faker::Lorem.paragraph,
+		actingexp: Faker::Lorem.paragraphs(2, true),
+		battleexp: Faker::Lorem.paragraphs(2, true),
+		adsexp: Faker::Lorem.paragraphs(2, true),
+		teachingexp: Faker::Lorem.paragraphs(2, true)
 		)
 end
 
 users = User.all
 
 users.each do |user|
-	Project.create!(
-		# name: Faker::Commerce.product_name,
-		name: "Project Number #{user.id}",
-		user_id: user.id,
-		total_likes: Faker::Number.number(2)
-		)
+	rand(10).times do |it|
+		Project.create!(
+			name: Faker::Commerce.product_name,
+			# name: "Project From user: #{user.id}",
+			user_id: user.id,
+			total_likes: Faker::Number.number(2)
+			)
+	end
 end

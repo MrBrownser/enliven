@@ -4,4 +4,10 @@ class User < ActiveRecord::Base
 	validates :username, :email, :born, presence: true
 
 	has_many :projects, dependent: :destroy
+
+	def create_empty_project
+		self.projects.create(
+			name: "Portfolio"
+			)
+	end
 end

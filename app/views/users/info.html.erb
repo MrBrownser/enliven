@@ -1,0 +1,62 @@
+<div class="col-md-8 col-md-offset-2">
+	<h1> <%= @user.username %> <%= link_to "Back", users_path, class: "small" %> </h1>
+
+	<h2> Basic info </h2>
+
+	<div class="basicinfo">
+		<p><strong> Full name: </strong> <%= @user.fullname %> </p>
+		<p><strong> Performing: </strong> <%= @user.styles %> </p>
+		<p> <%= @user.summary %> </p>
+	</div>
+
+	<div class="supplementdata">
+		<h2> Origins </h2>
+
+		<p><strong> Born on: </strong> <%= @user.born %> </p>
+		<p><strong> Nationality: </strong> <%= @user.nationality %> </p>
+		<p><strong> Ethnicity: </strong> <%= @user.ethnicity %> </p>
+		<p><strong> Speaking: </strong> <%= @user.languages %> </p>
+
+		<h2> Measures </h2>	
+
+		<p><strong> Height (cm): </strong> <%= @user.height %> </p>
+		<p><strong> Chest (cm): </strong> <%= @user.chest %> </p>
+		<p><strong> Waist (cm): </strong> <%= @user.waist %> </p>
+		<p><strong> Hips (cm): </strong> <%= @user.hips %> </p>
+		<p><strong> Suit (size): </strong> <%= @user.suit %> </p>
+		<p><strong> Shirt (size): </strong> <%= @user.shirt %> </p>
+		<p><strong> Pants (size): </strong> <%= @user.pants %> </p>
+		<p><strong> Shoes (size): </strong> <%= @user.shoes %> </p>
+		<p><strong> Eyes: </strong> <%= @user.eyes %> </p>
+		<p><strong> Hair: </strong> <%= @user.hair %> </p>
+
+		<% unless @user.actingexp.nil? || @user.battleexp.nil? || @user.adsexp.nil? || @user.teachingexp.nil? %>
+			<h2> Extended experience info </h2>
+
+			<% unless @user.actingexp.nil? %>
+				<div class="text-success">
+					<h3> Acting (LOGO) </h3>
+					<p> <%= @user.actingexp %> </p>
+				</div>
+			<% end %>
+			<% unless @user.battleexp.nil? %>
+				<div class="text-danger">
+					<h3> Battling (LOGO) </h3>
+					<p> <%= @user.battleexp %> </p>
+				</div>
+			<% end %>
+			<% unless @user.adsexp.nil? %>
+				<div class="text-warning">
+					<h3> TV / Ads (LOGO) </h3>
+					<p> <%= @user.adsexp %> </p>
+				</div>
+			<% end %>
+			<% unless @user.teachingexp.nil? %>
+				<div class="text-info">
+					<h3> Teaching (LOGO) </h3>
+					<p> <%= @user.teachingexp %> </p>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

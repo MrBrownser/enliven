@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   root 'site#home'
 
-  resources :users, only: [:index, :show, :edit, :update], param: :username
+  resources :users, only: [:index, :show, :edit, :update], param: :username do
+    resources :projects
+  end
+
+  get "/users/:username/info", to: "users#info"
 
   get  "/register", to: "registrations#new"
   post "/register", to: "registrations#create"
