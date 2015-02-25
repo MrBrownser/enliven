@@ -17,5 +17,13 @@
 // @import "bootstrap-sprockets";
 @import "bootstrap";
 // Fixed navbar in the top
-body { padding-top: 60px; }
+// body { padding-top: 60px; }
 @import "bootswatch/slate/bootswatch";
+
+nav{
+	div{
+		div{
+			a.logo { font-family: ‘Pacifico’, Arial, serif; font-weight: 400; }
+		}
+	}
+}
