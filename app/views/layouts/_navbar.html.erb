@@ -33,9 +33,9 @@
           <li> <%= link_to "Logout", logout_path, method: :delete, confirm: 'Logout?', remote: true %> </li>
         </ul>
       <% else %>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right text-center">
           <li> <%= link_to "Register", register_path %> </li>
-          <li> <%= link_to "Log In", register_path %> </li>
+          <li> <a href="", id: "btn-login", data-toggle="modal", data-target="#login-modal"> LogIn </a> </li>
         </ul>
       <% end %>
     </div>

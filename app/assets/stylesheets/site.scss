@@ -12,3 +12,25 @@ nav{
 		}
 	}
 }
+
+div.modal-header{
+	span.logo{
+		font-family: "Pacifico", Arial, serif;
+		font-weight: 400;
+		font-size: 1.8em;
+	}
+}
+
+div.modal-body{
+	div.form-group{
+		form{
+			input.login-field{
+				margin: 5px;
+			}
+		}
+	}
+}
+
+.modal-footer{
+	display: inline-block;
+}
