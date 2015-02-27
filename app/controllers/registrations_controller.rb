@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
 			# We create the empty project: "Portfolio", for all separate photos
 			# TODO: Validate the creation
 			@user.create_empty_project
-			redirect_to user_path(@user)
+			redirect_to user_path(@user.username)
 		else
 			render :new
 		end
@@ -25,6 +25,6 @@ class RegistrationsController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :email, :born, :password, :password_confirmation)
+		params.require(:user).permit(:username, :email, :born, :fullname, :profile_picture, :password, :password_confirmation)
 	end
 end

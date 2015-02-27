@@ -1,4 +1,4 @@
-<h1> Register in 10 seconds and start sharing your portfolio!</h1>
+<h1 class="text-center"> Register in 10 seconds and start sharing your portfolio!</h1>
 
 <% if @user.errors.any? %>
   <ul>
@@ -9,16 +9,17 @@
 <% end %>
 
 <div class="container">
-  <div class="col-sm-8 col-md-offset-2">
+  <div class="col-sm-5 col-md-offset-3">
     <%= bootstrap_form_for @user, html: { multipart: true }, url: register_path do |f| %>
       <%= f.text_field :username %>
       <%= f.text_field :email %>
+      <%= f.text_field :fullname %>
       <%= f.date_field :born %>
       <%= f.password_field :password %>
       <%= f.password_field :password_confirmation, label: "Confirm password" %>
       <%= f.file_field :logo %>
       <%= f.submit "Start enjoying!", class: "btn btn-success" %>
-      <%= link_to "Cancel", users_path, class: "btn btn-default" %>
+      <%= link_to "Cancel", root_path, class: "btn btn-default" %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,13 @@
+<h1 class="text-center">All registered users</h1>
+
+<div class="list-group text-center">
+  <% @users.each do |user| %>
+    <a href="<%= user_path(user.username) %>" class="list-group-item">
+      <h4 class="list-group-item-heading"> @<%= user.username %> </h4>
+      <h4 class="list-group-item-text"> <%= user.fullname %> </h4>
+      <p class="list-group-item-text"> <strong> <%= user.styles %> </strong> </p>
+    </a>
+  <% end %>
+</div>
+
+<%= paginate @users %>

@@ -1,4 +1,4 @@
-<h1>Edit <%= @user.username %></h1>
+<h1 class="text-center">Editing <%= @user.username %></h1>
 
 <% if @user.errors.any? %>
   <ul>
@@ -8,29 +8,21 @@
   </ul>
 <% end %>
 
-<%= form_for @user do |f| %>
-  <div class="form-group">
-    <%= f.label :username, "Username" %>
-    <%= f.text_field :username, placeholder: "Your username", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :fullname, "Full name" %>
-    <%= f.text_field :fullname, placeholder: "Your full name", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :styles, "Styles you dance" %>
-    <%= f.text_field :styles, placeholder: "ie. Housedance, Popping, Bboying, ...", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :born, "Birthday" %>
-    <%= f.date_field :born, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :summary, "Summary" %>
-    <%= f.text_area :summary, placeholder: "Enter here a brief summary of your career as a dancer" %>
+<di v class="container">
+  <div class="col-sm-5 col-md-offset-3">
+    <%= bootstrap_form_for @user do |f| %>
+      <%= f.text_field :fullname %>
+      <%= f.date_field :born, label: "Birthday" %>
+      <%= f.text_field :styles, placeholder: "ie. Housedance, Popping, Bboying, ..." %>
+      <%= f.text_field :summary, placeholder: "Enter here a brief summary of your career as a dancer" %>
+            
+      <%= f.password_field :password %>
+      <%= f.password_field :password_confirmation, label: "Confirm password" %>
+      <%= f.file_field :logo %>
+      <%= f.submit "Start enjoying!", class: "btn btn-success" %>
+      <%= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
     <% end %>
   </div>
-  <%= f.submit "Edit user info!", class: "btn btn-default" %>
-<% end %>
+</div>
 
 <h1> Still remains the part of the form where update all advanced info! </h1>
