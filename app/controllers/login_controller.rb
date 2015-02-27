@@ -1,4 +1,4 @@
-class LoginsController < ApplicationController
+class LoginController < ApplicationController
 
 	def create
 		user = User.where(email: params[:email]).first
@@ -7,7 +7,7 @@ class LoginsController < ApplicationController
 		if user && user.authenticate(params[:password])
 			flash[:success] = "Login sucessful! Welcome #{user.username}!"
 
-			session[:current_user_id] = user.id
+			session[:current_user_name] = user.username
 		else
 			flash[:error] = "Login was not sucessful"
 		end
@@ -16,7 +16,7 @@ class LoginsController < ApplicationController
 	end
 
 	def destroy
-		session[:current_user_id] = nil
+		session[:current_user_name] = nil
 
 		respond_to do |format|
 			format.html { redirect_to root_path }

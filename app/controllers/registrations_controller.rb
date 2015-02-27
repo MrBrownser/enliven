@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
 		if @user.save
 			# TODO: UserMailer.welcome(@user).deliver_now
 			
-			session[:current_user_id] = @user.id
+			session[:current_user_name] = @user.username
 
 			# We create the empty project: "Portfolio", for all separate photos
 			# TODO: Validate the creation

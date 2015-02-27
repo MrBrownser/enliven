@@ -6,6 +6,6 @@ class SiteController < ApplicationController
 	end
 
 	def load_best_projects
-		@projects = Project.all.order("total_likes DESC").limit(20)
+		@projects = Project.all.order("total_likes DESC").includes(:user).limit(20)
 	end
 end
