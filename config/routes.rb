@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get "/users/:user_username/info", to: "users#info"
 
+  # get ':controller(/:action(/:id))'
+
   get  "/register", to: "registrations#new"
   post "/register", to: "registrations#create"
 

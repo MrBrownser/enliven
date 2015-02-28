@@ -11,17 +11,15 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		
 	end
 
 	def info
 	end
 	
-
 	def update
-		if @user.update(users_params)
+		if @user.update_attributes(user_params)
 			flash[:notice] = "User updated successfully"
-			
+			# debugger
 			redirect_to user_path(@user.username)
 		else
 			flash[:error]  = "Ops! We couldn't update the user, please review the errors"
@@ -36,7 +34,7 @@ class UsersController < ApplicationController
     	@user = User.find_by username: params[:username]
   	end
 
-  	def users_params
+  	def user_params
     	params.require(:user).permit(:username, :fullname, :styles, :summary, :born, :profile_picture, :nationality, :ethnicity, :languages, :height, :chest, :waist, :hips, :suit, :shirt, :pants, :shoes, :eyes, :hair, :actingexp, :battleexp, :adsexp, :teachingexp)
   	end
 

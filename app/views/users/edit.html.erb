@@ -10,7 +10,7 @@
 
 <di v class="container">
   <div class="col-sm-5 col-md-offset-3">
-    <%= bootstrap_form_for @user do |f| %>
+    <%= bootstrap_form_for @user, html: { multipart: true } do |f| %>
       <%= f.text_field :fullname %>
       <%= f.date_field :born, label: "Birthday" %>
       <%= f.text_field :styles, placeholder: "ie. Housedance, Popping, Bboying, ..." %>
@@ -19,6 +19,7 @@
       <%= f.password_field :password %>
       <%= f.password_field :password_confirmation, label: "Confirm password" %>
       <%= f.file_field :logo %>
+      debugger
       <%= f.submit "Start enjoying!", class: "btn btn-success" %>
       <%= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
     <% end %>

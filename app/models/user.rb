@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
 			name: "Portfolio"
 			)
 	end
+
+	def to_param
+  		username
+	end
 end
