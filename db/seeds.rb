@@ -31,7 +31,6 @@ users.each do |user|
 	rand(10).times do |it|
 		Project.create!(
 			name: Faker::Commerce.product_name,
-			# name: "Project From user: #{user.id}",
 			user_id: user.id,
 			total_likes: Faker::Number.number(2)
 			)

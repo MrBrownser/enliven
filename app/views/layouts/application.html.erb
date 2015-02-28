@@ -14,13 +14,23 @@
 			<% flash.map do |key, msg| %>
 				<% if key == "success" %>
 					<%= content_tag :div, class: ["alert", "alert-success", "alert-dismissible"], role: "alert" do %>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<p> <%= msg %> </p>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<p> <%= msg %> </p>
+					<% end %>
+				<% elsif key == "notice" %>
+					<%= content_tag :div, class: ["alert", "alert-info", "alert-dismissible"], role: "alert" do %>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<p> <%= msg %> </p>
+					<% end %>
+				<% elsif key == "warning" %>
+					<%= content_tag :div, class: ["alert", "alert-warning", "alert-dismissible"], role: "alert" do %>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<p> <%= msg %> </p>
 					<% end %>
 				<% elsif key == "error" %>
-					<%= content_tag :div, class: ["alert", "alert-warning", "alert-dismissible"], role: "alert" do %>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<p> <%= msg %> </p>
+					<%= content_tag :div, class: ["alert", "alert-danger", "alert-dismissible"], role: "alert" do %>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<p> <%= msg %> </p>
 					<% end %>
 				<% end %>					
 			<% end %>
