@@ -1,43 +1,53 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "enliven", root_path, class: "navbar-brand logo" %>
-    </div>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- Famous Burguer -->
+          
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "enliven", root_path, class: "navbar-brand logo" %>
+        </div>
 
-    <div class="collapse navbar-collapse" id="bs-navbar-collapse-2">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <% if current_user_name %>
-        <ul class="nav navbar-nav navbar-right">
-          <li> <%= link_to current_user_name.username, user_path(current_user_name.username) %> </li>
-          <li> <%= link_to "Logout", logout_path, method: :delete, confirm: 'Logout?', remote: true %> </li>
-        </ul>
-      <% else %>
-        <ul class="nav navbar-nav navbar-right text-center">
-          <li> <%= link_to "Register", register_path %> </li>
-          <li> <a href="", id: "btn-login", data-toggle="modal", data-target="#login-modal"> LogIn </a> </li>
-        </ul>
-      <% end %>
-    </div>
+        <!-- Search Field -->
+        <div class="col-sm-6 col-md-6">
+          <form class="navbar-form pull-right" role="search" method="get" id="search-form" name="search-form">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Users, projects and styles..." id="query" name="query" value="">
+                  <div class="input-group-btn">
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- User interactions -->
+
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse-2">
+          <% if current_user_name %>
+            <ul class="nav navbar-nav navbar-right">
+              <li> <%= link_to current_user_name.username, user_path(current_user_name.username) %> </li>
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li> <%= link_to "Edit Profile", edit_user_path(current_user_name.username) %> </li>
+                  <li><a href="#">Your Projects</a></li>
+                  <li class="divider"></li>
+                  <li> <%= link_to "Log out", logout_path, method: :delete, confirm: 'Logout?', remote: true %> </li>
+                </ul>
+              </li>
+            </ul>
+          <% else %>
+            <ul class="nav navbar-nav navbar-right">
+              <li> <%= link_to "Register", register_path %> </li>
+              <li> <a href="", id: "btn-login", data-toggle="modal", data-target="#login-modal"> Log In </a> </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
   </div>
-</nav>
+  </nav>

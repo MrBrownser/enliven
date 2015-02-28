@@ -8,22 +8,31 @@
   </ul>
 <% end %>
 
-<di v class="container">
-  <div class="col-sm-5 col-md-offset-3">
-    <%= bootstrap_form_for @user, html: { multipart: true } do |f| %>
-      <%= f.text_field :fullname %>
-      <%= f.date_field :born, label: "Birthday" %>
-      <%= f.text_field :styles, placeholder: "ie. Housedance, Popping, Bboying, ..." %>
-      <%= f.text_field :summary, placeholder: "Enter here a brief summary of your career as a dancer" %>
-            
-      <%= f.password_field :password %>
-      <%= f.password_field :password_confirmation, label: "Confirm password" %>
-      <%= f.file_field :logo %>
-      debugger
-      <%= f.submit "Start enjoying!", class: "btn btn-success" %>
-      <%= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
-    <% end %>
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#basics" data-toggle="tab" aria-expanded="true">Basics</a></li>
+      <li><a href="#origins" data-toggle="tab" aria-expanded="false">Origins</a></li>
+      <li><a href="#measures" data-toggle="tab" aria-expanded="false">Measures</a></li>
+      <li><a href="#detailedbio" data-toggle="tab" aria-expanded="false">Detailed BIO</a></li>
+      <li><a href="#security" data-toggle="tab" aria-expanded="false">Security</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade active in" id="basics">
+        <%= render 'users/basics' %>
+      </div>
+      <div class="tab-pane fade" id="origins">
+        <%= render 'users/origins' %>
+      </div>
+      <div class="tab-pane fade" id="measures">
+        <%= render 'users/measures' %>
+      </div>
+      <div class="tab-pane fade" id="detailedbio">
+        <%= render 'users/detailedbio' %>
+      </div>
+      <div class="tab-pane fade" id="security">
+        <%= render 'users/security' %>
+      </div>
+    </div>
   </div>
 </div>
-
-<h1> Still remains the part of the form where update all advanced info! </h1>

@@ -1,0 +1,6 @@
+<%= bootstrap_form_for @user, html: { multipart: true } do |f| %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation, label: "Confirm password" %>
+  <%= f.submit "Save Changes", class: "btn btn-success" %>
+  <%= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
+<% end %>

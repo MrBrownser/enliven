@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :projects
   end
 
-  get "/users/:user_username/info", to: "users#info"
+  get "/users/:username/info", to: "users#info", as: "user_info"
 
   # get ':controller(/:action(/:id))'
 

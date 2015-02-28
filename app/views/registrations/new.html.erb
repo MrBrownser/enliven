@@ -13,8 +13,6 @@
     <%= bootstrap_form_for @user, html: { multipart: true }, url: register_path do |f| %>
       <%= f.text_field :username %>
       <%= f.text_field :email %>
-      <%= f.text_field :fullname %>
-      <%= f.date_field :born %>
       <%= f.password_field :password %>
       <%= f.password_field :password_confirmation, label: "Confirm password" %>
       <%= f.file_field :logo %>

@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 	def update
 		if @user.update_attributes(user_params)
 			flash[:notice] = "User updated successfully"
-			# debugger
 			redirect_to user_path(@user.username)
 		else
 			flash[:error]  = "Ops! We couldn't update the user, please review the errors"

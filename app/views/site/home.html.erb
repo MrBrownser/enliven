@@ -1,5 +1,9 @@
-<h1> Welcome to enliven! </h1>
-<h1 class="lead"> The online portfolio for <del>performing arts professionals</del> DANCERS!</h1>
+
+<div class="jumbotron">
+	<h2> Welcome to enliven! </h2>
+  	<h4 class="lead"> The online portfolio for <del>performing arts professionals</del> DANCERS!</h1>
+  	<p> <%= link_to "Make your portfolio now and start sharing!", register_path, class: "btn btn-success btn-lg", role: "button" %> </p>
+</div>
 
 <% @projects.each do |project| %>
 <div class="col-sm-2">

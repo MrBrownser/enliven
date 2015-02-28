@@ -1,0 +1,8 @@
+<%= bootstrap_form_for @user, html: { multipart: true } do |f| %>
+  <%= f.date_field :born, label: "Birthday" %>
+  <%= f.text_field :nationality, placeholder: "City, State" %>
+  <%= f.text_field :ethnicity %>
+  <%= f.text_field :languages, placeholder: "List all languages you can speak" %>
+  <%= f.submit "Save Changes", class: "btn btn-success" %>
+  <%= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
+<% end %>

@@ -1,0 +1,10 @@
+<%= bootstrap_form_for @user, html: { multipart: true } do |f| %>
+  <%= f.static_control :email %>
+  <%= f.text_field :fullname %>
+  <%= f.date_field :born, label: "Birthday" %>
+  <%= f.text_field :styles, placeholder: "ie. Housedance, Popping, Bboying, ..." %>
+  <%= f.text_area :summary, placeholder: "Enter here a brief summary of your career as a dancer" %>
+  <%= f.file_field :logo %>
+  <%= f.submit "Save Changes", class: "btn btn-success" %>
+  <%= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
+<% end %>

@@ -1,0 +1,14 @@
+<%= bootstrap_form_for @user, html: { multipart: true } do |f| %>
+  <%= f.number_field :height %>
+  <%= f.number_field :chest %>
+  <%= f.number_field :waist %>
+  <%= f.number_field :hips %>
+  <%= f.text_field :suit, placeholder: "Your suit size" %>
+  <%= f.text_field :shirt, placeholder: "Your shirt size" %>
+  <%= f.text_field :pants, placeholder: "Your pants size" %>
+  <%= f.number_field :shoes, placeholder: "Your shoes number (USA size)" %>
+  <%= f.text_field :eyes, placeholder: "Your eyes color" %>
+  <%= f.text_field :hair, placeholder: "Your hair color, size, cut..." %>
+  <%= f.submit "Save Changes", class: "btn btn-success" %>
+  <%= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
+<% end %>
