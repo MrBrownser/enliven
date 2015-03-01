@@ -47,7 +47,8 @@ projects.each do |project|
 		project.media.create!(
 			mediatype: "photo",
 			description: Faker::Hacker.say_something_smart,
-			link: "http://lorempixel.com/"+ rand(200...400).to_s + "/" + rand(200...4000).to_s + "/fashion"
+			# link: "http://lorempixel.com/"+ rand(200...400).to_s + "/" + rand(200...4000).to_s + "/fashion"
+			link: "http://lorempixel.com/400/200/fashion"
 			)
 	end
 	# rand(10).times do |it|
@@ -58,6 +59,7 @@ projects.each do |project|
 end
 
 # Wildcarduser creation
+# Check first if it's created!!
 wild_card_user = User.create!(
 	username: "admin",
 	password: "1234",

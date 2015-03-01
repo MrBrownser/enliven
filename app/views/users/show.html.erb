@@ -3,10 +3,10 @@
 	<header>
 		<div class="col-sm-2">
 			<% unless @user.profile_picture_file_name.nil? %>
-				<%= image_tag @user.profile_picture.url(:thumb) %>
+				<%= image_tag @user.profile_picture.url(:thumb), class: "img-thumbnail" %>
 			<% else %>
 				<a href="#" class="thumbnail">
-					<img src="/assets/default_profile_pic.png" alt="User profile picture">
+					<img src="/assets/default_profile_pic.png" alt="User profile picture" class="img-thumbnail">
 				</a>
 			<% end %>
 		</div>
