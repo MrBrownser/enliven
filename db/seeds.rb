@@ -18,21 +18,55 @@
 		summary: Faker::Lorem.paragraph,
 		nationality: Faker::Address.country,
 		profile_picture: open(Faker::Avatar.image),
-		actingexp: Faker::Lorem.paragraphs(2, true),
-		battleexp: Faker::Lorem.paragraphs(2, true),
-		adsexp: Faker::Lorem.paragraphs(2, true),
-		teachingexp: Faker::Lorem.paragraphs(2, true)
+		actingexp: Faker::Lorem.paragraph(2),
+		battleexp: Faker::Lorem.paragraph(2),
+		adsexp: Faker::Lorem.paragraph(2),
+		teachingexp: Faker::Lorem.paragraph(2)
 		)
 end
 
+# Projects creation
 users = User.all
 
 users.each do |user|
 	rand(10).times do |it|
-		Project.create!(
+		user.projects.create!(
 			name: Faker::Commerce.product_name,
-			user_id: user.id,
+			company: Faker::Company.name,
+			description: Faker::Company.catch_phrase + Faker::Lorem.paragraph(1),
 			total_likes: Faker::Number.number(2)
 			)
 	end
 end
+
+# Media creation
+projects = Project.all
+
+projects.each do |project|
+	rand(10).times do |it|
+		project.media.create!(
+			mediatype: "photo",
+			description: Faker::Hacker.say_something_smart,
+			link: "http://lorempixel.com/"+ rand(200...400).to_s + "/" + rand(200...4000).to_s + "/fashion"
+			)
+	end
+	# rand(10).times do |it|
+	# 	ProjectMedium.create!(
+	# 		type: "video"
+	# 		)
+	# end
+end
+
+# Wildcarduser creation
+wild_card_user = User.create!(
+	username: "admin",
+	password: "1234",
+	fullname: "Admin user",
+	email: "admin@enliven.com",
+	born: Faker::Date.between(28.years.ago, 26.years.ago),
+	)
+
+wild_card_user.projects.create!(
+	name: "Project for checking things",
+	company: "enliven inc.",
+	)

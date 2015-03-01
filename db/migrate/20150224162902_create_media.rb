@@ -1,6 +1,6 @@
-class CreateProjectMedia < ActiveRecord::Migration
+class CreateMedia < ActiveRecord::Migration
   def change
-    create_table :project_media do |t|
+    create_table :media do |t|
     	t.string 	:type
     	t.string 	:description, default: ""
     	t.string 	:link

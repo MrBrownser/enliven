@@ -1,0 +1,13 @@
+<h1> Project: <strong> <%= @project.name %> </strong> </h1>
+<h2> for: <strong> <%= @project.company %> </strong> </h2>
+<p> <%= @project.description %> </p>
+
+<% @media.each do |media| %>
+	<div class="col-xs-6 col-md-3">
+		<div class="thumbnail" style="backgound-color: blue;"></div>
+		<div class="media-info">
+			<p> <%= image_tag(media.link, alt: "Media num. #{media.id}") %> </p>
+		</div>
+	</div>
+
+<% end %>
