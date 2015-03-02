@@ -2,5 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.media { width: 90%; }
-.media.w2 { width: 50%; }
+.media-container {
+  max-width: 1200px;
+}
+
+.media-container:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+// .media {
+//   float: left;
+//   max-width: 200px;
+//   width: 40%;
+//   height: auto;
+//   background: #0D8;
+//   border: 2px solid #333;
+//   border-color: hsla(0, 0%, 0%, 0.7);
+// }
+
+// .media.w2 {
+// 	width: 200px;
+// 	height: auto;
+// 	}
+
+// .media.h2 {
+// 	height: 200px;
+// 	width: auto;
+// }
+
+.media {
+  float: left;
+  width: 100px;
+  height: auto;
+  background: #0D8;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.7);
+}
+
+.media.w2 {
+	width: 200px;
+	}
+
+.media.h2 {
+	height: 200px;
+}

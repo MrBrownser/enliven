@@ -1,0 +1,11 @@
+<h1 class="text-center">Projects from user @user.username </h1>
+
+<div class="list-group text-center">
+  <% @projects.each do |project| %>
+    <a href="<%= user_project_path(@user.username, project.id) %>" class="list-group-item">
+      <h4 class="list-group-item-heading"> <%= project.name %> </h4>
+      <h4 class="list-group-item-text"> <%= project.company %> </h4>
+      <p class="list-group-item-text"> <strong> <%= project.total_likes %># </strong>enlivened </p>
+    </a>
+  <% end %>
+</div>

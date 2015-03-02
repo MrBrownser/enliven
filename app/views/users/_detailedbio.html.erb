@@ -1,8 +1,8 @@
 <%= bootstrap_form_for @user, html: { multipart: true } do |f| %>
-	<%= f.text_area :actingexp, placeholder: "Enter here a brief summary of your acting experience" %>
-	<%= f.text_area :battleexp, placeholder: "Enter here a brief summary of your battling achievements" %>
-	<%= f.text_area :adsexp, placeholder: "Enter here a brief summary of your participation in Ads and Campaigns" %>
-	<%= f.text_area :teachingexp, placeholder: "Enter here a brief summary of teaching experience" %>
+	<%= f.text_area :actingexp, label: "Acting experience", placeholder: "Enter here a brief summary of your acting experience" %>
+	<%= f.text_area :battleexp, label: "Battling experience", placeholder: "Enter here a brief summary of your battling achievements" %>
+	<%= f.text_area :adsexp, label: "Ads and Campaigns experience", placeholder: "Enter here a brief summary of your participation in Ads and Campaigns" %>
+	<%= f.text_area :teachingexp, label: "Teaching experience", placeholder: "Enter here a brief summary of teaching experience" %>
 	<%= f.submit "Save Changes", class: "btn btn-success" %>
 	<%= link_to "Cancel", user_path(@user), class: "btn btn-default" %>
 <% end %>

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :project_medium do
+  factory :media do
     
   end
 

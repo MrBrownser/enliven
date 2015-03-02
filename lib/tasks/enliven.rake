@@ -35,6 +35,7 @@ namespace :enliven do
 		if Rails.env == "development"
 			Creation.create_patinyo_media(Creation.create_patinyo())
 			Creation.create_ruth_media(Creation.create_ruth())
+			Creation.create_wild_card_user()
 		else
 			puts "\nTask not meant to be run in other environment but development"
 		end
@@ -162,6 +163,34 @@ class Creation
 			link: "https://www.youtube.com/watch?v=Lvz4TWcLnTs",
 			mediatype: "video"
 			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-prn2/v/t1.0-9/1378264_10202122869814594_1342202539_n.jpg?oh=06dcc7fe9f024737d0cdccfe9653c5bc&oe=5577F248&__gda__=1435897470_e92708d4a67127bdb47abafbeae03a5b",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-frc3/v/t1.0-9/260502_10200992828404265_1826411648_n.jpg?oh=7e3cc144d2a98b230ca5ad8448f76117&oe=557B6BA8&__gda__=1430891493_f796a85f48b17963dfa71b7fc823bb58",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/225587_10200568947047496_113907818_n.jpg?oh=85fa52fcd6bef62ab72a7263032be379&oe=55801408&__gda__=1433828315_5f208ea2c7051418aadbc3414409ca6f",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/311036_2587004995756_1266612164_n.jpg?oh=342431d10a7a05f764f656c4fc1c3729&oe=55777EAE&__gda__=1435232103_48759f7b3033518e7911978844c39383",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/312498_2399410986023_1201431865_n.jpg?oh=d366d0615973d180ddc7fc4414b0eb21&oe=5594683D&__gda__=1434355802_681c6c6db8c8859fac396e45c3808b62",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/301597_2388115703648_346565840_n.jpg?oh=d6e491768dc9c12d972dd3ab36fc2730&oe=557E559C&__gda__=1434675796_70d0160d88237d2b9ba844d7f8582a2a",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://scontent-mad.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/293909_2382074072611_1351102353_n.jpg?oh=721a777ae186a1b522dda5b6d97b80e8&oe=5585334D",
+			mediatype: "photo"
+			)
 
 		#Project 2
 		projects[1].media.create!(
@@ -220,5 +249,26 @@ class Creation
 			link: "https://www.youtube.com/watch?v=QON2tfhbvtM",
 			mediatype: "video"
 			)
+	end
+
+	def self.create_wild_card_user()
+		# Wildcarduser creation
+		# Check first if it's created!!
+		admin = User.find_by email: "admin@enliven.com"
+
+		if admin.nil?	
+			wild_card_user = User.create!(
+				username: "admin",
+				password: "1234",
+				fullname: "Admin user",
+				email: "admin@enliven.com",
+				born: Faker::Date.between(28.years.ago, 26.years.ago),
+				)
+
+			wild_card_user.projects.create!(
+				name: "Project for checking things",
+				company: "enliven inc.",
+				)
+		end
 	end
 end

@@ -15,7 +15,7 @@
       <%= f.text_field :email %>
       <%= f.password_field :password %>
       <%= f.password_field :password_confirmation, label: "Confirm password" %>
-      <%= f.file_field :logo %>
+      <%= f.file_field :logo, label: "Profile picture" %>
       <%= f.submit "Start enjoying!", class: "btn btn-success" %>
       <%= link_to "Cancel", root_path, class: "btn btn-default" %>
     <% end %>

@@ -1,0 +1,21 @@
+<h1 class="text-center"> Create a new Project here </h1>
+
+<% if @project.errors.any? %>
+  <ul>
+    <% @project.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="container">
+  <div class="col-sm-5 col-md-offset-3">
+    <%= bootstrap_form_for @project, html: { multipart: true }, url: user_projects_path do |f| %>
+      <%= f.text_field :name %>
+      <%= f.text_field :company %>
+      <%= f.text_area :description %>
+      <%= f.submit "Create project", class: "btn btn-success" %>
+      <%= link_to "Cancel", root_path, class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>

@@ -47,8 +47,8 @@ projects.each do |project|
 		project.media.create!(
 			mediatype: "photo",
 			description: Faker::Hacker.say_something_smart,
-			# link: "http://lorempixel.com/"+ rand(200...400).to_s + "/" + rand(200...4000).to_s + "/fashion"
-			link: "http://lorempixel.com/400/200/fashion"
+			link: "http://lorempixel.com/"+ rand(200...400).to_s + "/" + rand(200...4000).to_s + "/fashion"
+			# link: "http://lorempixel.com/400/200/fashion"
 			)
 	end
 	# rand(10).times do |it|
@@ -59,16 +59,21 @@ projects.each do |project|
 end
 
 # Wildcarduser creation
-# Check first if it's created!!
-wild_card_user = User.create!(
-	username: "admin",
-	password: "1234",
-	fullname: "Admin user",
-	email: "admin@enliven.com",
-	born: Faker::Date.between(28.years.ago, 26.years.ago),
-	)
 
-wild_card_user.projects.create!(
-	name: "Project for checking things",
-	company: "enliven inc.",
-	)
+# Check first if it's created!!
+admin = User.find_by email: "admin@enliven.com"
+
+unless admin
+	wild_card_user = User.create!(
+		username: "admin",
+		password: "1234",
+		fullname: "Admin user",
+		email: "admin@enliven.com",
+		born: Faker::Date.between(28.years.ago, 26.years.ago),
+		)
+
+	wild_card_user.projects.create!(
+		name: "Project for checking things",
+		company: "enliven inc.",
+		)
+end
