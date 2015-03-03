@@ -1,23 +1,39 @@
 <div class="jumbotron">
-	<h1> Project: <strong> <%= @project.name %> </strong> </h1>
-	<h2> for: <strong> <%= @project.company %> </strong> </h2>
-	<p> <%= @project.description %> </p>
+	<div class="container">
+		<h1> Project: <strong> <%= @project.name %> </strong> </h1>
+		<h2> for: <strong> <%= @project.company %> </strong> </h2>
+		<p> <%= @project.description %> </p>
+	</div>
 </div>
 
 <div class="row">
 	<div class="col-xs-12 col-md-10 col-md-offset-1">
 		<div class="media-container">
+			<div class="medium-gutter"></div>
 			<% @media.each do |medium| %>
 				<% if medium.mediatype == "photo" %>
-					<% if medium.id%2 == 0 %>
-						<%= image_tag(medium.link, alt: "Media num. #{medium.id}", class: "media") %>
-					<% elsif medium.id%3 == 0 %>
-						<%= image_tag(medium.link, alt: "Media num. #{medium.id}", class: "media h2") %>
-					<% else %>
-						<%= image_tag(medium.link, alt: "Media num. #{medium.id}", class: "media w2") %>
-					<% end %>
+					<div class="medium">
+						<a href="#">
+							<%= image_tag(medium.link, alt: "Picture num. #{medium.id}") %>
+						</a>
+					</div>
+				<% else %>
+					<div class="medium">
+						<a href="", id: "video-modal", data-toggle="modal", data-target="#video-modal">
+							<%= image_tag( give_thumbnail(medium.link), alt: "Video num. #{medium.id}", link: "youtube_sanitize(medium.link)") %>
+						</a>
+					</div>
 				<% end %>
 			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="video-modal" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content text-center">
+			<div class="modal-body" id="embedded_video">
+			</div>
 		</div>
 	</div>
 </div>

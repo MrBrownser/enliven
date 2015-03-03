@@ -1,5 +1,5 @@
 <%= bootstrap_form_for @user, html: { multipart: true } do |f| %>
-  <%= f.static_control :email %>
+  <%= f.text_field :email, readonly: true %>
   <%= f.text_field :fullname %>
   <%= f.date_field :born, label: "Birthday" %>
   <%= f.text_field :styles, placeholder: "ie. Housedance, Popping, Bboying, ..." %>

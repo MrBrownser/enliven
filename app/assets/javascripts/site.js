@@ -4,5 +4,5 @@
 $(document).ready(remove_flash);
 
 function remove_flash() {
-	$("#flash-msg").delay(2015).slideUp();
+	$("#flash-msg").delay(5000).slideUp();
  }

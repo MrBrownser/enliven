@@ -2,13 +2,13 @@ class ProjectsController < ApplicationController
 
 	def show
 		# TODO: Redirect to user's profile with the project filtered
-		@user = User.find_by username: params[:user_username]
+		load_user()
 		@project = @user.projects.find params[:id]
 		@media = @project.media
 	end
 
 	def index
-		@user = User.find_by username: params[:user_username]
+		load_user()
 		@projects = @user.projects
 	end
 
@@ -17,22 +17,23 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		@project = Project.new(project_params)
+		load_user()
+		@project = @user.projects.new(project_params)
 		if @project.save
 			redirect_to user_path(@user.username)
 		else
 			render :new
 		end
-		rescue ActiveRecord::RecordNotUnique
-			@user.errors.add(:email, "There is already a user with this email")
-
-			render :new
 	end
 
 	private
 
-	def user_params
-		params.require(:user).permit(:username, :email, :profile_picture, :password, :password_confirmation)
+	def load_user
+		@user = User.find_by username: params[:user_username]
+	end
+
+	def project_params
+		params.require(:project).permit(:name, :company, :description)
 	end
 
 end

@@ -10,7 +10,7 @@
 	<body>
 		<%= render 'layouts/navbar' %>
 
-		<div class="container" id="flash-msg">
+		<div class="flash-msg" id="flash-msg">
 			<% flash.map do |key, msg| %>
 				<% if key == "success" %>
 					<%= content_tag :div, class: ["alert", "alert-success", "alert-dismissible"], role: "alert" do %>
@@ -36,9 +36,7 @@
 			<% end %>
 		</div>
 
-			<div class="container">
-				<%= yield %>
-			</div>
+		<%= yield %>
 
 		<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
