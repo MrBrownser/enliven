@@ -11,8 +11,9 @@
           <span class="icon-bar"></span>
         </button>
 
-        <%= link_to "enliven", root_path, class: "navbar-brand logo" %>
-
+        <!-- LOGO -->
+        <a href="<%= root_path %>"> <%= image_tag("enliven-logo.png", alt: "ENLIVEN logo", class: "enliven-logo") %> </a>
+        
       <!-- Search Field Small Screens-->
         <div class="col-xs-6 col-md-4 navbar-search-field-ss">
           <form class="navbar-form" role="search" method="get" id="search-form" name="search-form">

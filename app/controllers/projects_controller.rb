@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
 	def show
-		# TODO: Redirect to user's profile with the project filtered
+		# TODO: Redirect to user's profile with the project filtered (2nd version)
 		load_user()
 		@project = @user.projects.find params[:id]
 		@media = @project.media
@@ -9,10 +9,11 @@ class ProjectsController < ApplicationController
 
 	def index
 		load_user()
-		@projects = @user.projects
+		@projects = @user.projects.includes(:media)
 	end
 
 	def new
+		# TODO: When creating a new project, let the user select one of the media to be the project main_picture
 		@project = Project.new
 	end
 

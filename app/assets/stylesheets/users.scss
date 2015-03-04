@@ -2,19 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .profile-pic {
-// 	height: 150px;
-// 	width: 150px;
-// 	position: relative;
-// 	// margin-bottom: -5px;
-// }
-
-// .profile-pic img {
-// 	max-width: 100%;
-// 	max-height: 100%;
-// 	// position: absolute;
-// }
-
 div.user-header-buttons {
 	background-color: white;
+}
+
+.profile-pic {
+	width: 250px;
+	height: 250px;
+	border: 2px solid white;
+	box-shadow: 0 2px 5px black;
+}
+
+.user-jumbo.jumbotron {
+	background-image: url(bg-scenario.jpg);
+	background-size: cover;
+	background-position: center;
+
 }

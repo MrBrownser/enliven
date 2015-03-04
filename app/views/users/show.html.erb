@@ -1,11 +1,11 @@
-<div class="jumbotron">
+<div class="jumbotron user-jumbo">
 	<div class="container">
 		<div class="col-sm-3">
 			<a href="#" class="img-rounded">
 					<% unless @user.profile_picture_file_name.nil? %>
-						<%= image_tag @user.profile_picture.url(:medium), class: "img-thumbnail" %>
+						<%= image_tag @user.profile_picture.url(:medium), class: "img-rounded profile-pic" %>
 					<% else %>
-						<img src="/assets/default_profile_pic.png" alt="User profile picture" class="img-thumbnail">
+						<img src="/assets/default_profile_pic.png" alt="User profile picture" class="img-rounded profile-pic">
 					<% end %>
 			</a>
 		</div>
@@ -16,12 +16,53 @@
 			<p class="lead"> <%= @user.styles %> </p>
 		</div>
 		<div class="col-sm-7 col-sm-offset-3">
-			<%= link_to "All info", user_info_path(@user.username), class: "btn btn-primary" %>
-			<%= link_to "All Projects", user_projects_path(@user.username), class: "btn btn-primary" %>
-			<% if current_user_name && current_user_name.username == @user.username %>
-				<%= link_to "Edit Profile", edit_user_path(current_user_name.username), class: "btn btn-info" %>
-				<%= link_to "New Project", new_user_project_path(current_user_name.username), class: "btn btn-info" %>
+			<div class="btn-group">
+				<%= link_to "All info", user_info_path(@user.username), class: "btn btn-primary" %>
+				<%= link_to "All Projects", user_projects_path(@user.username), class: "btn btn-primary" %>
+				<% if current_user_name && current_user_name.username == @user.username %>
+					<%= link_to "Edit Profile", edit_user_path(current_user_name.username), class: "btn btn-success" %>
+					<%= link_to "New Project", new_user_project_path(current_user_name.username), class: "btn btn-success" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- TODO: Convert all this code repetition into a partial -->
+<div class="row">
+	<div class="col-xs-12 col-md-10 col-md-offset-1">
+		<div class="media-container">
+			<div class="medium-gutter"></div>
+			<% @projects.each do |project| %>
+				<% project.media.each do |medium| %>
+					<div class="medium">
+						<a href="", id: "media-modal", data-toggle="modal", data-target="#media-modal">
+							<% if medium.mediatype == "photo" %>
+								<%= image_tag(medium.link, alt: "Picture num. #{medium.id}", link: "#{medium.link}", typeofmedium: "#{medium.mediatype}") %>
+							<% else %>
+								<div class="play-button">
+									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+								</div>
+									<%= image_tag( give_thumbnail(medium.link), alt: "Video num. #{medium.id}", link: youtube_sanitize(medium.link), typeofmedium: "#{medium.mediatype}") %>
+							<% end %>
+						</a>
+					</div>
+				<% end %>
 			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="media-modal" tabindex="-1" role="dialog" aria-labelledby="media-modal" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content text-center">
+			<div class="modal-header" id="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> </br>
+				<h4 class="modal-title"></h4>
+			</div>
+			<div class="modal-body" id="embedded_media">
+				<!-- Media content (image/video) -->
+			</div>
 		</div>
 	</div>
 </div>

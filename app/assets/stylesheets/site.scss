@@ -40,6 +40,33 @@ div.modal-body{
 	display: inline-block;
 }
 
+.home-projects-image {
+	border-radius: 2px;
+}
+
+.project-gutter {
+	width: 0;
+}
+
+.enliven-logo {
+	width: 160px;
+	position: relative;
+	top: 10px;
+}
+
+.initial-page.jumbotron {
+	background-image: url(bg-home.jpg);
+	background-size: cover;
+	background-position: center 25%;
+	text-shadow: 0 1px 3px black;
+}
+
+.initial-page-logged.jumbotron {
+	background-image: url(bg-nigga.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
 @media (max-width: 768px) {
 	.navbar-text {
 		display: none;

@@ -26,3 +26,25 @@
 .medium-gutter {
   width: 2%;
 }
+
+.jumbo-cover.jumbotron {
+  background-image: url(bg-image.png);
+  background-size: cover;
+  text-shadow: 0 1px 3px black;
+}
+
+.play-button {
+  color: white;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  opacity: .8;
+  font-size: 80px;
+}
+
+.modal-body img {
+  max-width: 100%;
+  height: auto;
+}

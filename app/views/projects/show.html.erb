@@ -1,7 +1,7 @@
-<div class="jumbotron">
+<div class="jumbotron jumbo-cover">
 	<div class="container">
-		<h1> <strong> <%= @project.name %> </strong> <small> by <%= link_to @project.user.username, user_path(@project.user.username) %> </small> </h1>
-		<h2> for: <strong> <%= @project.company %> </strong> </h2>
+		<h3> <strong> <%= @project.name %> </strong> <small> by <%= link_to @project.user.username, user_path(@project.user.username) %> </small> </h3>
+		<h4> for: <strong> <%= @project.company %> </strong> </h4>
 		<p> <%= @project.description %> </p>
 	</div>
 </div>
@@ -11,16 +11,17 @@
 		<div class="media-container">
 			<div class="medium-gutter"></div>
 			<% @media.each do |medium| %>
-				<div class="medium", id="picked-medium">
-					<% if medium.mediatype == "photo" %>
-							<a href="", id: "media-modal", data-toggle="modal", data-target="#media-modal">
-								<%= image_tag(medium.link, alt: "Picture num. #{medium.id}", link: "#{medium.link}", typeofmedium: "#{medium.mediatype}") %>
-							</a>
-					<% else %>
-							<a href="", id: "media-modal", data-toggle="modal", data-target="#media-modal">
-								<%= image_tag( give_thumbnail(medium.link), alt: "Video num. #{medium.id}", link: "youtube_sanitize(medium.link)", typeofmedium: "#{medium.mediatype}") %>
-							</a>
-					<% end %>
+				<div class="medium">
+					<a href="", id: "media-modal", data-toggle="modal", data-target="#media-modal">
+						<% if medium.mediatype == "photo" %>
+							<%= image_tag(medium.link, alt: "Picture num. #{medium.id}", link: "#{medium.link}", typeofmedium: "#{medium.mediatype}") %>
+						<% else %>
+							<div class="play-button">
+								<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+							</div>
+								<%= image_tag( give_thumbnail(medium.link), alt: "Video num. #{medium.id}", link: youtube_sanitize(medium.link), typeofmedium: "#{medium.mediatype}") %>
+						<% end %>
+					</a>
 				</div>
 			<% end %>
 		</div>
@@ -32,9 +33,10 @@
 		<div class="modal-content text-center">
 			<div class="modal-header" id="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> </br>
+				<h4 class="modal-title"></h4>
 			</div>
 			<div class="modal-body" id="embedded_media">
-
+				<!-- Media content (image/video) -->
 			</div>
 		</div>
 	</div>

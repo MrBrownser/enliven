@@ -1,0 +1,36 @@
+<% unless current_user_name %>
+	<div class="jumbotron">
+		<div class="container">
+			<h2> Welcome to enliven! </h2>
+		  	<h4 class="lead"> The online portfolio for <del>performing arts professionals</del> DANCERS!</h4>
+		  	<p> <%= link_to "Make your portfolio now and start sharing!", register_path, class: "btn btn-success btn-lg", role: "button" %> </p>
+		</div>
+	</div>
+<% else %>
+	<div class="jumbotron">
+		<div class="container">
+			<h2> Welcome back <%= link_to current_user_name.username, user_path(current_user_name) %>! </h2>
+		  	<h4 class="lead"> You can directly access your profile features here: </h4>
+			<div class="btn-group btn-group-justified">
+				<%= link_to "Check your profile", user_path(current_user_name), class: "btn btn-default" %>
+				<%= link_to "Edit your profile", edit_user_path(current_user_name), class: "btn btn-default" %>
+				<%= link_to "Check your projects", user_projects_path(current_user_name), class: "btn btn-default" %>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+<div class="container">
+	<% @projects.each do |project| %>
+	<div class="col-xs-6 col-md-3">
+		<div class="thumbnail" style="backgound-color: blue;"></div>
+		<div class="project-info">
+			<p> 
+				<h3> <%= link_to project.name, user_project_path(project.user.username, project.id) %> </h3>
+				<p class="text-primary"> by <%= link_to project.user.username, user_path(project.user.username) %> </p>
+				<p> <%= project.total_likes %># enlivened!</p>
+			</p>
+		</div>
+	</div>
+	<% end %>
+</div>

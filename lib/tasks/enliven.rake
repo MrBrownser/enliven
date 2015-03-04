@@ -35,6 +35,7 @@ namespace :enliven do
 		if Rails.env == "development"
 			Creation.create_patinyo_media(Creation.create_patinyo())
 			Creation.create_ruth_media(Creation.create_ruth())
+			Creation.create_grazy_media(Creation.create_grazy())
 			Creation.create_wild_card_user()
 		else
 			puts "\nTask not meant to be run in other environment but development"
@@ -49,20 +50,21 @@ class Creation
 			username: "PatiñoRock",
 			password: "1234",
 			fullname: "Sergio Patiño",
-			email: "patiño@example.com",
+			email: "patiño@enliven.com",
 			born: Faker::Date.between(22.years.ago, 20.years.ago),
 			styles: "Bboying (breakdance) basicly, but I know the basics of most of HipHop styles",
 			summary: Faker::Lorem.paragraph(1),
-			profile_picture: open("https://s3.amazonaws.com/uifaces/faces/twitter/alexmarin/128.jpg"),
+			# profile_picture: open("https://s3.amazonaws.com/uifaces/faces/twitter/alexmarin/128.jpg"),
+			profile_picture: open("https://scontent-mxp.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10501890_10204059017257070_1701768582731525652_n.jpg?oh=bb591f1933c35ae8e6643d1b58050ddd&oe=558FC030"),
 
 			nationality: "Barcelona, SPAIN",
 			ethnicity: "Spanish",
 			languages: "Spanish and catalan",
 			
 			height: Faker::Number.number(2),
-			chest: Faker::Commerce.price,
-			waist: Faker::Commerce.price,
-			hips: Faker::Commerce.price,
+			chest: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			waist: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			hips: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
 			suit: "M",
 			shirt: "L",
 			pants: "42",
@@ -99,7 +101,7 @@ class Creation
 			username: "Ruth Bwmns",
 			password: "1234",
 			fullname: "Ruth Prim",
-			email: "ruth@example.com",
+			email: "ruth@enliven.com",
 			born: Faker::Date.between(22.years.ago, 20.years.ago),
 			styles: "HipHop, HipHop Freestyle, Newstyle, HouseDance",
 			summary: Faker::Lorem.paragraph(1),
@@ -110,9 +112,9 @@ class Creation
 			languages: "Spanish, catalan and English",
 			
 			height: Faker::Number.number(2),
-			chest: Faker::Commerce.price,
-			waist: Faker::Commerce.price,
-			hips: Faker::Commerce.price,
+			chest: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			waist: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			hips: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
 			suit: "M",
 			shirt: "M",
 			pants: "38",
@@ -141,6 +143,56 @@ class Creation
 			)
 
 		[r_p1, r_p2]
+	end
+
+	def self.create_grazy()
+		g = User.create!(
+			username: "Grazy",
+			password: "1234",
+			fullname: "Graciel Stenio",
+			email: "grazy@enliven.com",
+			born: Faker::Date.between(28.years.ago, 25.years.ago),
+			styles: "Bboying, contemporary and basics of most of latin dances",
+			summary: Faker::Lorem.paragraph(1),
+			profile_picture: open("https://scontent-mxp.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10345985_870429199641668_5083831949640086130_n.jpg?oh=69e89dcb685323e2a76d6e34af705be4&oe=557D0A66"),
+
+			nationality: "Madrid, SPAIN",
+			ethnicity: "Spanish",
+			languages: "Spanish and english",
+			
+			height: Faker::Number.number(2),
+			chest: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			waist: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			hips: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			suit: "M",
+			shirt: "L",
+			pants: "42",
+			shoes: 41,
+			eyes: "Dark brown",
+			hair: "Short, curly, black",
+
+			actingexp: Faker::Lorem.paragraph(2),
+			battleexp: Faker::Lorem.paragraph(1),
+			adsexp: Faker::Lorem.paragraph(3),
+			teachingexp: Faker::Lorem.paragraph(2),
+			)
+
+		g_p1 = g.projects.create!(
+			name: "Panorama Show, Space Tour 2014",
+			company: "Panorama Orchestra",
+			description: "This is a recopilatory of photos of me performing in the showcase. There I'm dancing but also doing percussion as well as acting.",
+			total_likes: 225
+			)
+
+
+		g_p2 = g.projects.create!(
+			name: "O MARISQUIÑO 2014",
+			company: "Bboying contest",
+			description: "Photo shots when competing in the jam",
+			total_likes: 135
+			)
+
+		[g_p1, g_p2]
 	end
 
 	def self.create_patinyo_media(projects)
@@ -194,6 +246,10 @@ class Creation
 
 		#Project 2
 		projects[1].media.create!(
+			link: "https://fragmentsdevida.files.wordpress.com/2014/05/2014-05-idance-49-fotografc3ada-de-blanca-c3a1lvarez.jpg",
+			mediatype: "photo"
+			)
+		projects[1].media.create!(
 			link: "https://www.youtube.com/watch?v=eSkldb0Mwc0",
 			mediatype: "video"
 			)
@@ -204,10 +260,6 @@ class Creation
 		projects[1].media.create!(
 			link: "https://www.youtube.com/watch?v=9ddZ8eGwKUU",
 			mediatype: "video"
-			)
-		projects[1].media.create!(
-			link: "https://fragmentsdevida.files.wordpress.com/2014/05/2014-05-idance-49-fotografc3ada-de-blanca-c3a1lvarez.jpg",
-			mediatype: "photo"
 			)
 	end
 
@@ -248,6 +300,90 @@ class Creation
 		projects[1].media.create!(
 			link: "https://www.youtube.com/watch?v=QON2tfhbvtM",
 			mediatype: "video"
+			)
+	end
+
+	def self.create_grazy_media(projects)
+
+		# Project 1 (Panorama show)
+		projects[0].media.create!(
+			link: "https://scontent-mxp.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10487357_869862913031630_2890048455708534329_n.jpg?oh=702e02877c4f18c40e71f8f7601866e6&oe=5591E209",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://www.youtube.com/watch?v=dAd77TRbusY",
+			mediatype: "video"
+			)
+		projects[0].media.create!(
+			link: "https://www.youtube.com/watch?v=eNs2ghkGSh8",
+			mediatype: "video"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/10703695_853830844634837_6695113612696824658_n.jpg?oh=8d025592c42a8cd01ef667afd0dabee3&oe=5590E500&__gda__=1433650794_2cafb2db1574007ed233bcfefedff7da",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/1927921_823904850960770_3851222671244718586_n.jpg?oh=fd8742156342829b7c29ae9ee3f826a8&oe=55769A27&__gda__=1434235580_d77b446ce492e60c6d99587b4970bde7",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://scontent-mxp.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/1939686_756525861032003_1329580791_n.jpg?oh=a2dbb345253cb783b7e2e5dd52619d16&oe=557194DD",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://scontent-mxp.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10001327_751848684833054_243211514_n.jpg?oh=7dff0b9d27c99ea4541e24fc9764690f&oe=55963743",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/10014599_751847091499880_2104854427_n.jpg?oh=cee27bb53b5a0b65b940a4b465705de7&oe=557F32E4&__gda__=1435347390_c931d67d5e0cb6d9468f485e2869b682",
+			mediatype: "photo"
+			)
+		
+
+		# Project 2 (O Marisquiño)
+		projects[1].media.create!(
+			link: "https://scontent-mxp.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/10492197_870427416308513_2768584216085066941_n.jpg?oh=7a1ac3ed2762594d3175af1906f648af&oe=557A1CE4",
+			mediatype: "photo"
+			)
+		projects[1].media.create!(
+			link: "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/10300967_870427909641797_4063552391538511248_n.jpg?oh=5110004aef819331f4690cda0585d3d4&oe=558CB869&__gda__=1435499267_7bd67ea47f4a37a34150bca3bed741a7",
+			mediatype: "photo"
+			)
+		projects[1].media.create!(
+			link: "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/1688703_870425406308714_7228701268959077015_n.jpg?oh=f74ff4bf2ce332931bece75a1ccfeac5&oe=55720F66&__gda__=1434597935_10b7f705523caef74003e38ebabbc679",
+			mediatype: "photo"
+			)
+		projects[1].media.create!(
+			link: "https://scontent-mxp.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/10704067_870426442975277_6915424174177954695_n.jpg?oh=80ebca8176fefc49655137382727341e&oe=5588A430",
+			mediatype: "photo"
+			)
+		projects[1].media.create!(
+			link: "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/1959231_870426549641933_7303602333165094817_n.jpg?oh=44b41b9d22eef00461791f778b9691e3&oe=558B32EB&__gda__=1433499504_a3a9f5da8ab6a9d230634ed1ad948b0f",
+			mediatype: "photo"
+			)
+		projects[1].media.create!(
+			link: "https://www.youtube.com/watch?v=FO72Zl69EiU",
+			mediatype: "video"
+			)
+		projects[1].media.create!(
+			link: "https://scontent-mxp.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/1014426_870426916308563_3117023693009669487_n.jpg?oh=8451adf2f2311b7c8178bbb7f446e241&oe=558B7E31",
+			mediatype: "photo"
+			)
+		projects[1].media.create!(
+			link: "https://www.youtube.com/watch?v=fNXcTw0uAk4",
+			mediatype: "video"
+			)
+		projects[1].media.create!(
+			link: "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/10696223_870427099641878_4344704354215966462_n.jpg?oh=3e6f6bde3f9d1a4bb5fe0b98b7ded38e&oe=557C4C35&__gda__=1433849603_b2298e0088c5040c3b894f3949172604",
+			mediatype: "photo"
+			)
+		projects[1].media.create!(
+			link: "https://scontent-mxp.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1654061_870427276308527_8336146767777146418_n.jpg?oh=feb649307f49fdc38384fe8817bd7b2c&oe=5589DE10",
+			mediatype: "photo"
+			)
+		projects[1].media.create!(
+			link: "https://scontent-mxp.xx.fbcdn.net/hphotos-xpa1/v/l/t1.0-9/10646716_870427326308522_8200724341669694704_n.jpg?oh=93b3dfde4e87c9546483d9d75fe2604f&oe=5574B0E2",
+			mediatype: "photo"
 			)
 	end
 

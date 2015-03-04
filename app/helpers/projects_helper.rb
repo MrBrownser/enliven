@@ -12,7 +12,7 @@ module ProjectsHelper
 			youtube_id = $5
 		end
 
-		%Q{<iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
-		# %Q{http://www.youtube.com/embed/#{ youtube_id }}
+		# %Q{<iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
+		%Q{http://www.youtube.com/embed/#{ youtube_id }}
 	end
 end
