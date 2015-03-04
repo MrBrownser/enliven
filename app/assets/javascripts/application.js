@@ -13,7 +13,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
 //= require imagesloaded.pkgd.min
 //= require isotope.pkgd
 //= require_tree .

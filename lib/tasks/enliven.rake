@@ -53,7 +53,7 @@ class Creation
 			born: Faker::Date.between(22.years.ago, 20.years.ago),
 			styles: "Bboying (breakdance) basicly, but I know the basics of most of HipHop styles",
 			summary: Faker::Lorem.paragraph(1),
-			profile_picture: open("https://scontent-mad.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10501890_10204059017257070_1701768582731525652_n.jpg?oh=bb591f1933c35ae8e6643d1b58050ddd&oe=558FC030"),
+			profile_picture: open("https://s3.amazonaws.com/uifaces/faces/twitter/alexmarin/128.jpg"),
 
 			nationality: "Barcelona, SPAIN",
 			ethnicity: "Spanish",
@@ -103,7 +103,7 @@ class Creation
 			born: Faker::Date.between(22.years.ago, 20.years.ago),
 			styles: "HipHop, HipHop Freestyle, Newstyle, HouseDance",
 			summary: Faker::Lorem.paragraph(1),
-			profile_picture: open("https://scontent-mad.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/10325172_10204187334498036_4960127145568139254_n.jpg?oh=0cf21649096e77f7083ddd1a260cdd29&oe=554C2992"),
+			profile_picture: open("https://s3.amazonaws.com/uifaces/faces/twitter/jkhorshidi/128.jpg"),
 
 			nationality: "Barcelona, SPAIN",
 			ethnicity: "Latin - Spanish",

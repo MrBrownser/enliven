@@ -39,3 +39,21 @@ div.modal-body{
 .modal-footer{
 	display: inline-block;
 }
+
+@media (max-width: 768px) {
+	.navbar-text {
+		display: none;
+	}
+	.navbar-search-field-bs {
+		display: none;
+	}
+	.navbar-search-field-ss {
+		display: inline;
+	}
+}
+
+@media (min-width: 768px) {
+	.navbar-search-field-ss {
+		display: none;
+	}
+}

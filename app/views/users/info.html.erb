@@ -1,38 +1,47 @@
 <div class="col-md-8 col-md-offset-2">
 	<h1> <%= @user.username %> <%= link_to "Back", user_path(@user.username), class: "small" %> </h1>
 
-	<h2> Basic info </h2>
+	<div role="tabpanel">
 
-	<div>
-		<p><strong> Full name: </strong> <%= @user.fullname %> </p>
-		<p><strong> Performing: </strong> <%= @user.styles %> </p>
-		<p> <%= @user.summary %> </p>
-	</div>
+	  <ul class="nav nav-tabs" role="tablist">
+	    <li role="presentation" class="active"><a href="#basic" aria-controls="basic" role="tab" data-toggle="tab"> Basic Info </a></li>
+	    <li role="presentation"><a href="#origins" aria-controls="origins" role="tab" data-toggle="tab"> Origins </a></li>
+	    <li role="presentation"><a href="#measures" aria-controls="measures" role="tab" data-toggle="tab"> Measures </a></li>
+	    <li role="presentation"><a href="#extendedbio" aria-controls="extendedbio" role="tab" data-toggle="tab"> Detailed BIO </a></li>
+	  </ul>
 
-	<div>
-		<h2> Origins </h2>
-
-		<p><strong> Born on: </strong> <%= @user.born %> </p>
-		<p><strong> Nationality: </strong> <%= @user.nationality %> </p>
-		<p><strong> Ethnicity: </strong> <%= @user.ethnicity %> </p>
-		<p><strong> Speaking: </strong> <%= @user.languages %> </p>
-
-		<h2> Measures </h2>	
-
-		<p><strong> Height (cm): </strong> <%= @user.height %> </p>
-		<p><strong> Chest (cm): </strong> <%= @user.chest %> </p>
-		<p><strong> Waist (cm): </strong> <%= @user.waist %> </p>
-		<p><strong> Hips (cm): </strong> <%= @user.hips %> </p>
-		<p><strong> Suit (size): </strong> <%= @user.suit %> </p>
-		<p><strong> Shirt (size): </strong> <%= @user.shirt %> </p>
-		<p><strong> Pants (size): </strong> <%= @user.pants %> </p>
-		<p><strong> Shoes (size): </strong> <%= @user.shoes %> </p>
-		<p><strong> Eyes: </strong> <%= @user.eyes %> </p>
-		<p><strong> Hair: </strong> <%= @user.hair %> </p>
-
-		<% unless @user.actingexp.nil? || @user.battleexp.nil? || @user.adsexp.nil? || @user.teachingexp.nil? %>
-			<h2> Extended experience info </h2>
-
+	  <!-- Tab panes -->
+	  <div class="tab-content">
+	    <div role="tabpanel" class="tab-pane active" id="basic">
+	    	<ul class="list-group">
+				<li class="list-group-item"><strong> Full name: </strong> <%= @user.fullname %> </li>
+				<li class="list-group-item"><strong> Performing: </strong> <%= @user.styles %> </li>
+				<li class="list-group-item"> <%= @user.summary %> </li>
+			</ul>
+	    </div>
+	    <div role="tabpanel" class="tab-pane" id="origins">
+	    	<ul class="list-group">
+				<li class="list-group-item"><strong> Born on: </strong> <%= @user.born %> </li>
+				<li class="list-group-item"><strong> Nationality: </strong> <%= @user.nationality %> </li>
+				<li class="list-group-item"><strong> Ethnicity: </strong> <%= @user.ethnicity %> </li>
+				<li class="list-group-item"><strong> Speaking: </strong> <%= @user.languages %> </li>
+			</ul>
+		</div>
+	    <div role="tabpanel" class="tab-pane" id="measures">
+	    	<ul class="list-group">
+				<li class="list-group-item"><strong> Height (cm): </strong> <%= @user.height.to_f.round(1) %> </li>
+				<li class="list-group-item"><strong> Chest (cm): </strong> <%= @user.chest.to_f.round(1) %> </li>
+				<li class="list-group-item"><strong> Waist (cm): </strong> <%= @user.waist.to_f.round(1) %> </li>
+				<li class="list-group-item"><strong> Hips (cm): </strong> <%= @user.hips.to_f.round(1) %> </li>
+				<li class="list-group-item"><strong> Suit (size): </strong> <%= @user.suit %> </li>
+				<li class="list-group-item"><strong> Shirt (size): </strong> <%= @user.shirt %> </li>
+				<li class="list-group-item"><strong> Pants (size): </strong> <%= @user.pants %> </li>
+				<li class="list-group-item"><strong> Shoes (size): </strong> <%= @user.shoes %> </li>
+				<li class="list-group-item"><strong> Eyes: </strong> <%= @user.eyes %> </li>
+				<li class="list-group-item"><strong> Hair: </strong> <%= @user.hair %> </li>
+			</ul>
+	    </div>
+	    <div role="tabpanel" class="tab-pane" id="extendedbio">
 			<% unless @user.actingexp.nil? %>
 				<div class="text-success">
 					<h3> Acting (LOGO) </h3>
@@ -57,6 +66,7 @@
 					<p> <%= @user.teachingexp %> </p>
 				</div>
 			<% end %>
-		<% end %>
+	    </div>
+	  </div>
 	</div>
 </div>

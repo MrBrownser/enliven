@@ -1,0 +1,38 @@
+<!-- User's page header -->
+<header class="col-sm-10">
+	<div class="row">
+		<div class="col-sm-3 col-sm-offset-1">
+			<a href="#" class="img-rounded">
+				<% unless @user.profile_picture_file_name.nil? %>
+					<%= image_tag @user.profile_picture.url(:medium), class: "img-thumbnail" %>
+				<% else %>
+					<img src="/assets/default_profile_pic.png" alt="User profile picture" class="img-thumbnail">
+				<% end %>
+			</a>
+		</div>
+		<div class="col-sm-7">
+			<h1> <%= @user.fullname %> <%= link_to "(#{@user.username})", user_path(@user.username), class: "lead" %> </h1>
+			<h2> <%= @user.nationality %> </h2>
+			<p class="lead"> <%= @user.styles %> </p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-sm-offset-1 user-header-buttons">
+			<div class="col-sm-offset-4">
+				<%= link_to "All info", user_info_path(@user.username), class: "btn btn-primary" %>
+				<%= link_to "All Projects", user_projects_path(@user.username), class: "btn btn-primary" %>
+				<% if current_user_name && current_user_name.username == @user.username %>
+					<%= link_to "Edit Profile", edit_user_path(current_user_name.username), class: "btn btn-info" %>
+					<%= link_to "New Project", new_user_project_path(current_user_name.username), class: "btn btn-info" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="row">
+	<h3 class="text-center"> Here goes the selectors </h3>
+</div>
+<div class="row">
+	<h3 class="text-center"> Here goes the images content </h3>
+</div>
