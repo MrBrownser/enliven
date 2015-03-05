@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Enliven</title>
+		<%= favicon_link_tag 'favicon.ico' %>
 		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -43,7 +44,7 @@
 				<div class="modal-content text-center">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h4 class="modal-title">Login to<span class="logo"> enliven</span></h4>
+						<h4 class="modal-title">Login to <%= image_tag("enliven-logo.png", alt: "ENLIVEN logo", class: "enliven-logo-login") %></h4>
 					</div>
 					<div class="modal-body">
 						<div class="form-group">

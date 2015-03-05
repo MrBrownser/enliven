@@ -3,6 +3,7 @@
 		<h3> <strong> <%= @project.name %> </strong> <small> by <%= link_to @project.user.username, user_path(@project.user.username) %> </small> </h3>
 		<h4> for: <strong> <%= @project.company %> </strong> </h4>
 		<p> <%= @project.description %> </p>
+		<h5> <%= @project.total_likes %># times enlivened </h5>
 	</div>
 </div>
 
@@ -19,7 +20,7 @@
 							<div class="play-button">
 								<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
 							</div>
-								<%= image_tag( give_thumbnail(medium.link), alt: "Video num. #{medium.id}", link: youtube_sanitize(medium.link), typeofmedium: "#{medium.mediatype}") %>
+								<%= image_tag( give_thumbnail(medium.link), alt: give_video_info(medium.link), link: youtube_sanitize(medium.link), typeofmedium: "#{medium.mediatype}") %>
 						<% end %>
 					</a>
 				</div>

@@ -33,10 +33,11 @@ namespace :enliven do
 	desc "Seed database with semi-real data"
 	task seed_real_data: :environment do
 		if Rails.env == "development"
-			Creation.create_patinyo_media(Creation.create_patinyo())
-			Creation.create_ruth_media(Creation.create_ruth())
-			Creation.create_grazy_media(Creation.create_grazy())
-			Creation.create_wild_card_user()
+			Creation.create_patinyo_media(Creation.create_patinyo)
+			Creation.create_ruth_media(Creation.create_ruth)
+			Creation.create_grazy_media(Creation.create_grazy)
+			Creation.create_meestka_media(Creation.create_meestka)
+			Creation.create_wild_card_user
 		else
 			puts "\nTask not meant to be run in other environment but development"
 		end
@@ -105,7 +106,7 @@ class Creation
 			born: Faker::Date.between(22.years.ago, 20.years.ago),
 			styles: "HipHop, HipHop Freestyle, Newstyle, HouseDance",
 			summary: Faker::Lorem.paragraph(1),
-			profile_picture: open("https://s3.amazonaws.com/uifaces/faces/twitter/jkhorshidi/128.jpg"),
+			profile_picture: open("https://scontent-bru.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/10325172_10204187334498036_4960127145568139254_n.jpg?oh=cb802b8e293f53c53e86fdf2327aff3c&oe=5573B692"),
 
 			nationality: "Barcelona, SPAIN",
 			ethnicity: "Latin - Spanish",
@@ -193,6 +194,47 @@ class Creation
 			)
 
 		[g_p1, g_p2]
+	end
+
+	def self.create_meestka()
+		m = User.create!(
+			username: "Meestka",
+			password: "1234",
+			fullname: "Karol Galindo",
+			email: "meestka@enliven.com",
+			born: Faker::Date.between(33.years.ago, 28.years.ago),
+			styles: "HouseDance, Hiphop Freestyle, Popping, Locking",
+			summary: Faker::Lorem.paragraph(1),
+			profile_picture: open("https://scontent-bru.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/s720x720/10940439_10152601900194599_9107600071860931536_n.jpg?oh=af0c8fe6445b8680919fee7e0fde77db&oe=557CAD43"),
+
+			nationality: "Barcelona, SPAIN",
+			ethnicity: "Spanish",
+			languages: "Spanish and english",
+			
+			height: Faker::Number.number(2),
+			chest: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			waist: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			hips: ((Faker::Number.number(2)).to_s + "." + (Faker::Number.number(2)).to_s).to_f,
+			suit: "M",
+			shirt: "L",
+			pants: "42",
+			shoes: 41,
+			eyes: "Dark brown",
+			hair: "Short, curly, black",
+
+			actingexp: Faker::Lorem.paragraph(2),
+			battleexp: Faker::Lorem.paragraph(1),
+			adsexp: Faker::Lorem.paragraph(3),
+			teachingexp: Faker::Lorem.paragraph(2),
+			)
+		
+		m_p1 = m.projects.create!(
+			name: "Portfolio",
+			company: "Myself",
+			description: "Photos of me performing, battling and random ones",
+			total_likes: 86
+			)
+		[m_p1, ""]
 	end
 
 	def self.create_patinyo_media(projects)
@@ -384,6 +426,39 @@ class Creation
 		projects[1].media.create!(
 			link: "https://scontent-mxp.xx.fbcdn.net/hphotos-xpa1/v/l/t1.0-9/10646716_870427326308522_8200724341669694704_n.jpg?oh=93b3dfde4e87c9546483d9d75fe2604f&oe=5574B0E2",
 			mediatype: "photo"
+			)
+	end
+
+	def self.create_meestka_media(projects)
+
+		# Project 1 (Portfolio)
+		projects[0].media.create!(
+			link: "https://scontent-bru.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/523779_10151053781534599_1600267917_n.jpg?oh=a6dc60d186c2eb5bf122a94ee09c378e&oe=5579FB8C",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://scontent-bru.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10340156_10152110599279599_5886305768325442494_n.jpg?oh=5dcc7371a5fd014e2ef943d6282e0a91&oe=557DAB24",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://scontent-bru.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10376081_10152110598534599_651955932213174963_n.jpg?oh=a3491c133a040a42e2798239124952ae&oe=558CD5FA",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/1959915_10151939047294599_1438787933_n.jpg?oh=9461a0f18100c169fbd5610a89fc445b&oe=557F91C2&__gda__=1434300008_532ee156f23b9cd7e349a50da8829c06",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://www.youtube.com/watch?v=cKRtNPtENZA",
+			mediatype: "video"
+			)
+		projects[0].media.create!(
+			link: "https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/s960x960/966845_10151811205644599_1054785425_o.jpg",
+			mediatype: "photo"
+			)
+		projects[0].media.create!(
+			link: "https://www.youtube.com/watch?v=hbJ0zbUAgW4",
+			mediatype: "video"
 			)
 	end
 
