@@ -44,25 +44,25 @@
 	    <div role="tabpanel" class="tab-pane" id="extendedbio">
 			<% unless @user.actingexp.nil? %>
 				<div class="text-success">
-					<h3> Acting (LOGO) </h3>
+					<h3> Acting </h3>
 					<p> <%= @user.actingexp %> </p>
 				</div>
 			<% end %>
 			<% unless @user.battleexp.nil? %>
 				<div class="text-danger">
-					<h3> Battling (LOGO) </h3>
+					<h3> Battling </h3>
 					<p> <%= @user.battleexp %> </p>
 				</div>
 			<% end %>
 			<% unless @user.adsexp.nil? %>
 				<div class="text-warning">
-					<h3> TV / Ads (LOGO) </h3>
+					<h3> TV / Ads </h3>
 					<p> <%= @user.adsexp %> </p>
 				</div>
 			<% end %>
 			<% unless @user.teachingexp.nil? %>
 				<div class="text-info">
-					<h3> Teaching (LOGO) </h3>
+					<h3> Teaching </h3>
 					<p> <%= @user.teachingexp %> </p>
 				</div>
 			<% end %>
