@@ -48,6 +48,8 @@ gem 'kaminari'
 # Video info!
 gem 'video_info'
 
+# Heroku things..
+gem 'faker'
 
 
 group :development, :test do
@@ -62,7 +64,6 @@ group :development, :test do
   gem 'spring'
   gem 'pry-rails'
   gem 'pry-coolline'
-  gem 'faker'
   gem 'rspec-rails', '~> 3.1'
   gem 'factory_girl_rails'
 end
