@@ -48,10 +48,10 @@ private
 class Creation
 	def self.create_patinyo()
 		p = User.create!(
-			username: "PatiñoRock",
+			username: "PatriskoRock",
 			password: "1234",
-			fullname: "Sergio Patiño",
-			email: "patiño@enliven.com",
+			fullname: "Alejandro Patrisko",
+			email: "patrisko@enliven.com",
 			born: Faker::Date.between(22.years.ago, 20.years.ago),
 			styles: "Bboying (breakdance) basicly, but I know the basics of most of HipHop styles",
 			summary: Faker::Lorem.paragraph(1),
@@ -88,8 +88,8 @@ class Creation
 
 
 		p_p2 = p.projects.create!(
-			name: "Street Dance Area",
-			company: "Street Dance Area dance academy",
+			name: "Street Dance Zone",
+			company: "Street Dance Zone dance academy",
 			description: "These are pictures of the Dance School where I teach. We do classes, shows and we also compete in events all over Spain and some parts of the outside",
 			total_likes: 123
 			)
@@ -99,10 +99,10 @@ class Creation
 
 	def self.create_ruth()
 		r = User.create!(
-			username: "Ruth Bwmns",
+			username: "Olga ProudWmns",
 			password: "1234",
-			fullname: "Ruth Prim",
-			email: "ruth@enliven.com",
+			fullname: "Olga Miró",
+			email: "olga@enliven.com",
 			born: Faker::Date.between(22.years.ago, 20.years.ago),
 			styles: "HipHop, HipHop Freestyle, Newstyle, HouseDance",
 			summary: Faker::Lorem.paragraph(1),
@@ -148,10 +148,10 @@ class Creation
 
 	def self.create_grazy()
 		g = User.create!(
-			username: "Grazy",
+			username: "Crazy",
 			password: "1234",
-			fullname: "Graciel Stenio",
-			email: "grazy@enliven.com",
+			fullname: "Marcelo String",
+			email: "Crazy@enliven.com",
 			born: Faker::Date.between(28.years.ago, 25.years.ago),
 			styles: "Bboying, contemporary and basics of most of latin dances",
 			summary: Faker::Lorem.paragraph(1),
@@ -179,8 +179,8 @@ class Creation
 			)
 
 		g_p1 = g.projects.create!(
-			name: "Panorama Show, Space Tour 2014",
-			company: "Panorama Orchestra",
+			name: "Cinerama Show, Space Tour 2014",
+			company: "Cinerama Orchestra",
 			description: "This is a recopilatory of photos of me performing in the showcase. There I'm dancing but also doing percussion as well as acting.",
 			total_likes: 225
 			)
@@ -198,10 +198,10 @@ class Creation
 
 	def self.create_meestka()
 		m = User.create!(
-			username: "Meestka",
+			username: "Neestka",
 			password: "1234",
-			fullname: "Karol Galindo",
-			email: "meestka@enliven.com",
+			fullname: "Núria Galindo",
+			email: "neestka@enliven.com",
 			born: Faker::Date.between(33.years.ago, 28.years.ago),
 			styles: "HouseDance, Hiphop Freestyle, Popping, Locking",
 			summary: Faker::Lorem.paragraph(1),

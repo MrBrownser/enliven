@@ -15,7 +15,7 @@
         <a href="<%= root_path %>"> <%= image_tag("enliven-logo.png", alt: "ENLIVEN logo", class: "enliven-logo") %> </a>
         
       <!-- Search Field Small Screens-->
-        <div class="col-xs-6 col-md-4 navbar-search-field-ss">
+        <div class="col-xs-6 col-md-4 navbar-search-field-ss hidden-sm">
           <form class="navbar-form" role="search" method="get" id="search-form" name="search-form">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Users, projects and styles..." id="query" name="query" value="">
@@ -34,7 +34,7 @@
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-2">
         
       <!-- Search Field Large Screens-->
-        <div class="col-xs-6 col-md-4 navbar-search-field-bs">
+        <div class="col-xs-6 col-md-4 navbar-search-field-bs hidden-sm">
           <form class="navbar-form pull-right" role="search" method="get" id="search-form" name="search-form">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Users, projects and styles..." id="query" name="query" value="">
