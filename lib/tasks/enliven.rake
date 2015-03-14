@@ -31,8 +31,8 @@ require 'faker'
 
 namespace :enliven do
 	desc "Seed database with semi-real data"
-	task seed_real_data: [:environment, :production] do
-		if Rails.env == "development"
+	task seed_real_data: :environment do
+		if Rails.envdevelopment? || Rails.production?
 			Creation.create_patinyo_media(Creation.create_patinyo)
 			Creation.create_ruth_media(Creation.create_ruth)
 			Creation.create_grazy_media(Creation.create_grazy)
