@@ -23,6 +23,8 @@ $(document).ready(function() {
       modal.find('.modal-title').text(medium.attr("alt"));
       modal.find('.modal-body').append("<img alt='Image content' src='"+ medium.attr("link") + "' class='img-rounded'>");  
     } else {
+      // Can't avoid warning message when embedding video, source:
+      // https://code.google.com/p/google-cast-sdk/issues/detail?id=309
       embedthis = "<p><iframe width='600' height='372' src='" + medium.attr('link') + "' frameborder='0' allowfullscreen></iframe></p>";
 
       modal.find('.modal-title').text(medium.attr("alt"));
