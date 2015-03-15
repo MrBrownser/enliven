@@ -1,7 +1,7 @@
 module ProjectsHelper
 	def give_thumbnail(link)
 		video = VideoInfo.new(link)
-		video.thumbnail_large
+		video.thumbnail_large.gsub("http", "https")
 	end
 
 	def youtube_sanitize(youtube_url)
