@@ -12,8 +12,11 @@ module ProjectsHelper
 			youtube_id = $5
 		end
 
-		# %Q{<iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
-		%Q{http://www.youtube.com/embed/#{ youtube_id }}
+		link = %Q{https://www.youtube.com/embed/#{ youtube_id }}
+		while (!VideoInfo.new(link).available?)
+			link = %Q{https://www.youtube.com/embed/#{ youtube_id }}
+		end
+		link
 	end
 
 	def give_video_info(link)

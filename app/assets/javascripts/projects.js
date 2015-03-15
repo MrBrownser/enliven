@@ -23,9 +23,7 @@ $(document).ready(function() {
       modal.find('.modal-title').text(medium.attr("alt"));
       modal.find('.modal-body').append("<img alt='Image content' src='"+ medium.attr("link") + "' class='img-rounded'>");  
     } else {
-      var http_link = medium.attr('link').replace(/http/gi, 'https');
-      console.log(http_link);
-      embedthis = "<p><iframe width='600' height='372' src='" + http_link + "' frameborder='0' allowfullscreen></iframe></p>";
+      embedthis = "<p><iframe width='600' height='372' src='" + medium.attr('link') + "' frameborder='0' allowfullscreen></iframe></p>";
 
       modal.find('.modal-title').text(medium.attr("alt"));
       modal.find('.modal-body').append(embedthis);
