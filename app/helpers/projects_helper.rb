@@ -12,11 +12,7 @@ module ProjectsHelper
 			youtube_id = $5
 		end
 
-		link = %Q{https://www.youtube.com/embed/#{ youtube_id }}
-		while (!VideoInfo.new(link).available?)
-			link = %Q{https://www.youtube.com/embed/#{ youtube_id }}
-		end
-		link
+		%Q{https://www.youtube.com/embed/#{ youtube_id }}
 	end
 
 	def give_video_info(link)
