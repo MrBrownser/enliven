@@ -42,6 +42,16 @@ namespace :enliven do
 			puts "\nTask not meant to be run in other environment but development"
 		end
 	end
+	task prepare_db: :environment do
+			Rake::Task["db:drop"].reenable
+			Rake::Task["db:drop"].invoke
+
+			Rake::Task["db:create"].reenable
+			Rake::Task["db:create"].invoke
+
+			Rake::Task["db:migrate"].reenable
+			Rake::Task["db:migrate"].invoke
+	end
 end
 
 private
