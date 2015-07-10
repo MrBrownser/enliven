@@ -248,7 +248,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   paperclip
-  pg (~> 0.18.1)
+  pg
   pry-coolline
   pry-rails
   pundit
@@ -263,3 +263,6 @@ DEPENDENCIES
   video_info
   web-console (~> 2.0)
   whenever
+
+BUNDLED WITH
+   1.10.5
